@@ -1,94 +1,42 @@
-﻿// dichiarazione di una variabile 
-int valoreIntero;
+﻿// costrutti condizionali
+int eta = 14;
 
-// assegnazione valore
-valoreIntero = 8;
-
-// dichiarazione variabili multipla
-int val1, val2, val3;
-
-// dichiarazione e assegnazione
-int val4 = 67;
-var val5 = "pippo"; // type inference
-
-// tipo string
-string valStringa1;
-valStringa1 = "stringa 1";
-
-// tipo bool
-bool valBool = true;
-valBool = false;
-
-// tipo numero con virgola
-double numeroConVirgola = 4.9;
-
-// tipo data
-DateTime oggi = DateTime.Now;
-
-// casting
-int five = 5;
-
-var fiveDouble = (double)five;
-
-// casting implicito (no perdita dati)
-double fiveDouble2 = five;
-
-// casting esplicito
-double dblFour = 4.7;
-int intFour = (int)dblFour;
-
-// cast non fattibile
-string myString = "1987";
-// int frase = (int)myString;
-
-int anno = Convert.ToInt32(myString);
-
-
-// parsing
-string strTwo = "2";
-int intTwo = int.Parse(strTwo);
-
-DateTime adesso = DateTime.Parse("12/12/2024");
-
-// coversione in stringa di qualsiasi tipo di dato
-intTwo.ToString();
-dblFour.ToString();
-
-// operatore is
-var mioValore = 6.5;
-
-bool isDouble = mioValore is double;
-
-// tipi nullable
-int? anni = null;
-bool? flag = null;
-
-if (anni.HasValue)
+if (eta > 18)
 {
-    Console.WriteLine(anni.Value);
+    Console.WriteLine($"Hai {eta} anni e quindi sei maggiorenne.");
 }
-
-// operatore ??
-int? a = 89;
-
-int f = a ?? -1;
-// è l'equivalente di
-int e;
-if (a.HasValue)
+else if (eta == 18)
 {
-    e = a.Value;
+    Console.WriteLine($"Hai {eta} anni e quindi sei appena maggiorenne.");
 }
 else
 {
-    e = -1;
+    Console.WriteLine($"Hai {eta} anni e quindi sei minorenne.");
 }
 
-int b = (int)a; // compila ma va in errore se a è null
+bool abilitatoAllaProfessione = true;
 
+if (eta >= 18 && abilitatoAllaProfessione)
+{
+    Console.WriteLine("Puoi essere assunto.");
+}
+else
+{
+    Console.WriteLine("NON puoi essere assunto.");
+}
 
-Console.WriteLine(anno);
-Console.WriteLine("Tipo:", intFour.GetType(), "Valore:", intFour);
-
-// costanti
-const int ANNO_SCOPERTA_AMERICA = 1492;
-Console.WriteLine(ANNO_SCOPERTA_AMERICA);
+if (eta >= 18)
+{
+    if (abilitatoAllaProfessione)
+    {
+        Console.WriteLine("Sei maggiorenne e abilitato, puoi essere assunto.");
+    }
+    else
+    {
+        Console.WriteLine("Sei maggiorenne ma non abilitato, NON puoi essere assunto.");
+    }
+}
+else
+{
+    Console.WriteLine("Sei minorenne, NON puoi essere assunto.");
+}
