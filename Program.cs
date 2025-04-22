@@ -88,3 +88,7 @@ int b = (int)a; // compila ma va in errore se a è null
 
 Console.WriteLine(anno);
 Console.WriteLine("Tipo:", intFour.GetType(), "Valore:", intFour);
+
+// costanti
+const int ANNO_SCOPERTA_AMERICA = 1492;
+Console.WriteLine(ANNO_SCOPERTA_AMERICA);
