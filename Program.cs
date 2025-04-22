@@ -1,74 +1,45 @@
-﻿// concatenazione
-string amico = "Gigi";
-string saluto = "Ciao " + amico + "!";
+﻿// tipi di dato
 
-Console.WriteLine(saluto);
+// interi
+int intero_int = 999999999; // int è alias di Int32
+Int32 itero32 = 999999999;
 
-// interpolazione
-Console.WriteLine($"Ciao {amico}!");
+short intero_short = 9999; // short è alias di Int16
+Int16 intero16 = 9999;
 
-var altroAmico = "Mario";
-Console.WriteLine($"I miei amici sono {amico} e {altroAmico}.");
+long intero_long = 999999999999999999; // long è alias di Int64
+Int64 intero64 = 999999999999999999;
 
-// proprietà delle stringhe
-Console.WriteLine($"Il nome {amico} ha {amico.Length} lettere.");
-Console.WriteLine($"Il nome {altroAmico} ha {altroAmico.Length} lettere.");
+ushort us = 9999;
+uint ui = 999999999;
+ulong ul = 999999999999999999;
 
-// conversione
-char a = 'a';
-int eta = 31;
-double altezza = 1.56;
+// decimali
+float single_float = 1.5f; // float è alias di Single
+Single single = 1.5f;
 
-Console.WriteLine($"La mia amica {amico}{a} ha {eta} anni ed è alta {altezza} metri.");
+double dbl_double = 1.5d; // 1.5 (d) double è alias di Double
+Double dbl = 1.5;
 
-// operazioni sulle stringhe
-string saluti = "      Ciao Mondo!       ";
-Console.WriteLine($"[{saluti}]");
+decimal dcml_decimal = 1.5m; // decimal è alias di Decimal
+Decimal dcml = 1.5m;
 
-string trimmedSaluti = saluti.Trim();
-Console.WriteLine($"[{trimmedSaluti}]");
+// conversione/cast implicito (no perdita di dati)
+int fromInt = 56;
+double toDouble = fromInt;
 
-Console.WriteLine($"[{saluti.TrimStart()}]");
-Console.WriteLine($"[{saluti.TrimEnd()}]");
+// conversione/cast esplicito (possibile perdita di dati)
+short toShort = (short)fromInt;
 
-// replace
-string ciao = "Ciao Mondo!";
-Console.WriteLine(ciao);
+// https://learn.microsoft.com/it-it/dotnet/csharp/language-reference/builtin-types/numeric-conversions
 
-string ciao2 = ciao.Replace("Ciao", "Buongiorno");
-Console.WriteLine(ciao2);
+// area del cerchio
+decimal r = 2.5m;
+double dd = 5.6;
 
-ciao2 = ciao.Replace("ciao", "Buongiorno");
-Console.WriteLine(ciao2);
+double risultato = (double)r / dd;
 
-ciao2 = ciao.Replace("ciao", "Buongiorno", true, null);
-Console.WriteLine(ciao2);
+double r2 = 4.5;
 
-// upper, lower
-Console.WriteLine(ciao.ToUpper());
-Console.WriteLine(ciao.ToLower());
-
-// ricerca
-string songLyrics = "Tu dici addio, io dico arrivederci";
-Console.WriteLine(songLyrics.Contains("addio"));
-Console.WriteLine(songLyrics.Contains("saluti"));
-
-Console.WriteLine(songLyrics.StartsWith("Tu"));
-Console.WriteLine(songLyrics.StartsWith("tu", true, null));
-Console.WriteLine(songLyrics.EndsWith("rci"));
-
-string albero = "albERo";
-Console.WriteLine(albero.Substring(0, 1)); // a
-Console.WriteLine(albero.Substring(2, 3)); // bER
-
-// range operator
-Console.WriteLine(albero[..2]); // al
-Console.WriteLine(albero[2..]); // bERo
-Console.WriteLine(albero[2..5]); // bER - dal carattere 2 al carattere 5 compresi
-
-// trasformare "albERo" in "Albero" usando substring
-string albero2 = $"{albero[..1].ToUpper()}{albero[1..].ToLower()}";
-Console.WriteLine(albero2);
-
-albero2 = $"{albero.Substring(0, 1).ToUpper()}{albero.Substring(1).ToLower()}";
-Console.WriteLine(albero2);
+Console.WriteLine((double)r * (double)r * Math.PI);
+Console.WriteLine(r2 * r2 * Math.PI);
