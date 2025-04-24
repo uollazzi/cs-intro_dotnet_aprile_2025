@@ -71,4 +71,45 @@ foreach (var item in nomi)
     Console.WriteLine(item);
 }
 
+int numeroMax = 0;
+List<int> numeri = [37, 6, 87, 63, 61];
 
+foreach (var numero in numeri)
+{
+    if (numero > numeroMax)
+    {
+        numeroMax = numero;
+    }
+}
+
+Console.WriteLine($"Numero massimo: {numeroMax}");
+
+int somma = 0;
+foreach (var numero in numeri)
+{
+    somma += numero;
+}
+
+Console.WriteLine($"Somma numeri: {somma}");
+
+// ciclo do
+// esegue in modo condizionale il corpo UNA o più volte
+// esegue prima il codice E POI controlla la condizione
+int contatore = 0;
+do
+{
+    Console.WriteLine($"Ciclo do: {contatore}");
+    contatore++;
+} while (contatore < 5);
+
+// ciclo while
+// testa PRIMA la condizione poi eventualmente esegue il codice
+// esegue in modo condizionale il corpo ZERO o più volte
+contatore = 0;
+while (contatore < 5)
+{
+    Console.WriteLine($"Ciclo while: {contatore}");
+    contatore++;
+}
+
+// TODO: interruzioni cicli 
