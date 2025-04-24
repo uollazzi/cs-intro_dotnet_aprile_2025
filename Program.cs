@@ -1,107 +1,74 @@
-﻿// costrutti condizionali
-int eta = 14;
+﻿// normalmente in C# array e liste contengono un elenco di dati dello STESSO TIPO
+// array
 
-if (eta > 18)
+// dichiarazione specificando la dimensione
+int[] arr1 = new int[5];
+
+// dichiarazione specificando gli elementi
+int[] arr2 = new int[] { 1, 3, 5, 6 };
+int[] arr3 = [3, 5, 6];
+
+int[,,] arr4 = new int[3, 3, 6];
+
+Mese[] mesiCaldi = [Mese.Giugno, Mese.Luglio, Mese.Agosto];
+
+Console.WriteLine(mesiCaldi[1]);
+
+// generics
+// introducono il concetto di tipo come parametro
+List<int> listaDiInteri2 = new List<int>() { 1, 3, 4 };
+List<int> listaDiInteri = [1, 3, 4];
+
+Console.WriteLine(listaDiInteri[1]);
+Console.WriteLine(listaDiInteri.Count);
+
+List<string> listaDiStringhe = ["ciao", "pippo"];
+
+// list
+// come array ma più "comode" da usare
+List<int> numeriPrimi = [2, 3, 5];
+numeriPrimi.Add(7); // [2,3,5,7]
+
+int index = numeriPrimi.IndexOf(58);
+Console.WriteLine(index);
+
+numeriPrimi.Remove(2);
+Console.WriteLine(string.Join(",", numeriPrimi));
+
+numeriPrimi.Add(1);
+Console.WriteLine(string.Join(",", numeriPrimi));
+
+numeriPrimi.Sort();
+Console.WriteLine(string.Join(",", numeriPrimi));
+
+numeriPrimi.Reverse();
+Console.WriteLine(string.Join(",", numeriPrimi));
+
+numeriPrimi[0] = 19;
+Console.WriteLine(string.Join(",", numeriPrimi));
+
+numeriPrimi.Clear();
+Console.WriteLine(string.Join(",", numeriPrimi));
+
+// cicli
+for (int i = 0; i < 3; i++)
 {
-    Console.WriteLine($"Hai {eta} anni e quindi sei maggiorenne.");
-}
-else if (eta == 18)
-{
-    Console.WriteLine($"Hai {eta} anni e quindi sei appena maggiorenne.");
-}
-else
-{
-    Console.WriteLine($"Hai {eta} anni e quindi sei minorenne.");
-}
-
-bool abilitatoAllaProfessione = true;
-
-if (eta >= 18 && abilitatoAllaProfessione)
-{
-    Console.WriteLine("Puoi essere assunto.");
-}
-else
-{
-    Console.WriteLine("NON puoi essere assunto.");
-}
-
-if (eta >= 18)
-{
-    if (abilitatoAllaProfessione)
-    {
-        Console.WriteLine("Sei maggiorenne e abilitato, puoi essere assunto.");
-    }
-    else
-    {
-        Console.WriteLine("Sei maggiorenne ma non abilitato, NON puoi essere assunto.");
-    }
-}
-else
-{
-    Console.WriteLine("Sei minorenne, NON puoi essere assunto.");
-}
-
-string etichetta = "";
-
-etichetta = eta >= 18 ? "maggiorenne" : "minorenne";
-
-var stagioneCorrente = Stagione.Primavera;
-Stagione stagionePrecendente = Stagione.Inverno;
-
-Console.WriteLine(stagioneCorrente);
-
-// conversione
-int stagioneCorrenteInt = (int)stagioneCorrente;
-Console.WriteLine(stagioneCorrenteInt);
-
-var autunno = (Stagione)2;
-Console.WriteLine(autunno);
-
-if (stagioneCorrente == Stagione.Primavera)
-{
-    Console.WriteLine("In primavera sbocciano i fiori.");
+    Console.WriteLine(i);
 }
 
-Mese meseCorrente = Mese.Febbraio;
-Console.WriteLine((int)meseCorrente);
+List<string> nomi = ["Gigi", "Mario", "Betta"];
 
-switch (meseCorrente)
+// alternativa for
+for (int i = 0; i < nomi.Count; i++)
 {
-    case Mese.Gennaio:
-        Console.WriteLine($"{meseCorrente} è il mese numero {(int)meseCorrente}");
-        break;
-    case Mese.Febbraio:
-        Console.WriteLine($"{meseCorrente} è il mese numero {(int)meseCorrente}");
-        break;
-    case Mese.Marzo:
-        Console.WriteLine($"{meseCorrente} è il mese numero {(int)meseCorrente}");
-        break;
-    default:
-        Console.WriteLine("Altri mesi dopo Marzo");
-        break;
+    var item = nomi[i];
+    Console.WriteLine(item);
 }
 
-Console.Write("Inserire un mese (1-12): ");
-var m = Console.ReadLine();
-
-if (m != null)
+// alternativa foreach
+foreach (var item in nomi)
 {
-    int meseInNumero = Convert.ToInt32(m);
-    meseCorrente = (Mese)meseInNumero;
+    Console.WriteLine(item);
 }
 
-switch (meseCorrente)
-{
-    case Mese.Novembre:
-    case Mese.Aprile:
-    case Mese.Giugno:
-    case Mese.Settembre:
-        Console.WriteLine($"{meseCorrente} ha 30 giorni.");
-        break;
-    case Mese.Febbraio:
-        Console.WriteLine($"{meseCorrente} ha 28 giorni (a volte 29).");
-        break;
-    default:
-        Console.WriteLine($"Tutti gli altri ne hanno 31, compreso {meseCorrente}");
-        break;
-}
+
