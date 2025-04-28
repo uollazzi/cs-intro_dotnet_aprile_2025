@@ -112,4 +112,35 @@ while (contatore < 5)
     contatore++;
 }
 
-// TODO: interruzioni cicli 
+// interruzioni cicli 
+// in qualsiasi punto all'interno del corpo di un ciclo
+// è possibile uscire dal ciclo utilizzando "break"
+// oppure passare all'iterazione successiva utilizzando "continue"
+contatore = 0;
+while (contatore < 10)
+{
+    if (contatore == 1)
+    {
+        contatore++;
+        continue; // nono scrive l'1
+    }
+
+    if (contatore == 8)
+    {
+        break; // esce a 8
+    }
+
+    Console.WriteLine($"Ciclo while advanced: {contatore}");
+    contatore++;
+}
+
+string[] strArray = ["undici", "due", "tre", "dieci"];
+
+foreach (var item in strArray)
+{
+    if (item == "tre")
+    {
+        continue;
+    }
+    Console.WriteLine(item.ToUpper());
+}
